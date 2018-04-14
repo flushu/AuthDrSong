@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn run build
+  /usr/local/bin/node /usr/local/bin/yarn run serve
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -20,7 +20,8 @@ npm manifest:
     "description": "",
     "main": "index.js",
     "scripts": {
-      "build": "webpack --watch",
+      "build:dev": "webpack",
+      "build:prod": "webpack -p --env production",
       "dev-server": "webpack-dev-server"
     },
     "author": "",
@@ -30,9 +31,11 @@ npm manifest:
       "babel-core": "6.25.0",
       "babel-loader": "7.1.1",
       "babel-plugin-transform-class-properties": "6.24.1",
+      "babel-plugin-transform-object-rest-spread": "6.23.0",
       "babel-preset-env": "1.5.2",
       "babel-preset-react": "6.24.1",
       "css-loader": "0.28.4",
+      "extract-text-webpack-plugin": "3.0.0",
       "jquery": "^3.3.1",
       "live-server": "^1.2.0",
       "node-sass": "4.5.3",
@@ -40,10 +43,12 @@ npm manifest:
       "react": "15.6.1",
       "react-dom": "15.6.1",
       "react-modal": "2.2.2",
+      "react-redux": "5.0.5",
       "react-router-dom": "4.2.2",
       "redux": "^3.7.2",
       "sass-loader": "6.0.6",
       "style-loader": "0.18.2",
+      "uuid": "3.1.0",
       "validator": "8.0.0",
       "webpack": "3.1.0",
       "webpack-dev-server": "2.5.1"
@@ -272,7 +277,7 @@ Lockfile:
     version "1.5.2"
     resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
   
-  async@^2.1.2, async@^2.1.5:
+  async@^2.1.2, async@^2.1.5, async@^2.4.1:
     version "2.6.0"
     resolved "https://registry.yarnpkg.com/async/-/async-2.6.0.tgz#61a29abb6fcc026fea77e56d1c6ec53a795951f4"
     dependencies:
@@ -548,6 +553,10 @@ Lockfile:
     version "6.18.0"
     resolved "https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
   
+  babel-plugin-syntax-object-rest-spread@^6.8.0:
+    version "6.13.0"
+    resolved "https://registry.yarnpkg.com/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
+  
   babel-plugin-syntax-trailing-function-commas@^6.22.0:
     version "6.22.0"
     resolved "https://registry.yarnpkg.com/babel-plugin-syntax-trailing-function-commas/-/babel-plugin-syntax-trailing-function-commas-6.22.0.tgz#ba0360937f8d06e40180a43fe0d5616fff532cf3"
@@ -750,6 +759,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/babel-plugin-transform-flow-strip-types/-/babel-plugin-transform-flow-strip-types-6.22.0.tgz#84cb672935d43714fdc32bce84568d87441cf7cf"
     dependencies:
       babel-plugin-syntax-flow "^6.18.0"
+      babel-runtime "^6.22.0"
+  
+  babel-plugin-transform-object-rest-spread@6.23.0:
+    version "6.23.0"
+    resolved "https://registry.yarnpkg.com/babel-plugin-transform-object-rest-spread/-/babel-plugin-transform-object-rest-spread-6.23.0.tgz#875d6bc9be761c58a2ae3feee5dc4895d8c7f921"
+    dependencies:
+      babel-plugin-syntax-object-rest-spread "^6.8.0"
       babel-runtime "^6.22.0"
   
   babel-plugin-transform-react-display-name@^6.23.0:
@@ -1506,7 +1522,7 @@ Lockfile:
       safe-buffer "^5.0.1"
       sha.js "^2.4.8"
   
-  create-react-class@^15.6.0:
+  create-react-class@^15.5.3, create-react-class@^15.6.0:
     version "15.6.3"
     resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
     dependencies:
@@ -2078,6 +2094,15 @@ Lockfile:
       snapdragon "^0.8.1"
       to-regex "^3.0.1"
   
+  extract-text-webpack-plugin@3.0.0:
+    version "3.0.0"
+    resolved "https://registry.yarnpkg.com/extract-text-webpack-plugin/-/extract-text-webpack-plugin-3.0.0.tgz#90caa7907bc449f335005e3ac7532b41b00de612"
+    dependencies:
+      async "^2.4.1"
+      loader-utils "^1.1.0"
+      schema-utils "^0.3.0"
+      webpack-sources "^1.0.1"
+  
   extsprintf@1.3.0:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
@@ -2521,6 +2546,10 @@ Lockfile:
     version "4.2.1"
     resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
   
+  hoist-non-react-statics@^1.0.3:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
+  
   hoist-non-react-statics@^2.3.0:
     version "2.5.0"
     resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-2.5.0.tgz#d2ca2dfc19c5a91c5a6615ce8e564ef0347e2a40"
@@ -2689,7 +2718,7 @@ Lockfile:
     version "1.1.0"
     resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.1.0.tgz#7ed1b1410c6a0e0f78cf95d3b8440c63f78b8614"
   
-  invariant@^2.2.1, invariant@^2.2.2:
+  invariant@^2.0.0, invariant@^2.2.1, invariant@^2.2.2:
     version "2.2.4"
     resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
     dependencies:
@@ -3105,7 +3134,7 @@ Lockfile:
       p-locate "^2.0.0"
       path-exists "^3.0.0"
   
-  lodash-es@^4.2.1:
+  lodash-es@^4.2.0, lodash-es@^4.2.1:
     version "4.17.8"
     resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.8.tgz#6fa8c8c5d337481df0bdf1c0d899d42473121e45"
   
@@ -4244,6 +4273,18 @@ Lockfile:
       prop-types "^15.5.10"
       react-dom-factories "^1.0.0"
   
+  react-redux@5.0.5:
+    version "5.0.5"
+    resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.5.tgz#f8e8c7b239422576e52d6b7db06439469be9846a"
+    dependencies:
+      create-react-class "^15.5.3"
+      hoist-non-react-statics "^1.0.3"
+      invariant "^2.0.0"
+      lodash "^4.2.0"
+      lodash-es "^4.2.0"
+      loose-envify "^1.1.0"
+      prop-types "^15.5.10"
+  
   react-router-dom@4.2.2:
     version "4.2.2"
     resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.2.2.tgz#c8a81df3adc58bba8a76782e946cbd4eae649b8d"
@@ -5225,6 +5266,10 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   
+  uuid@3.1.0:
+    version "3.1.0"
+    resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.1.0.tgz#3dd3d3e790abc24d7b0d3a034ffababe28ebbc04"
+  
   uuid@^2.0.2:
     version "2.0.3"
     resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
@@ -5490,16 +5535,14 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  Error: Command failed.
-  Exit signal: SIGABRT
-  Command: sh
-  Arguments: -c webpack --watch
-  Directory: /Users/myroot/Desktop/Sidebar
-  Output:
-  
-      at ProcessTermError.MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
-      at new ProcessTermError (/usr/local/lib/node_modules/yarn/lib/cli.js:226:113)
-      at ChildProcess.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:30281:17)
-      at ChildProcess.emit (events.js:180:13)
-      at maybeClose (internal/child_process.js:936:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
+  Error: Command "serve" not found.
+      at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:87307:17
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:116:14
+      at new Promise (<anonymous>)
+      at new F (/usr/local/lib/node_modules/yarn/lib/cli.js:23451:28)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:95:12
+      at runCommand (/usr/local/lib/node_modules/yarn/lib/cli.js:87312:22)
+      at Object.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:87412:14)

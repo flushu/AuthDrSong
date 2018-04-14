@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar/app';
 import ExcelForm from './components/ExcelForm/app';
 import $ from 'jquery';
 import './styles/styles.scss';
+import 'normalize.css/normalize.css';
 import configureStore from './store/configureStore';
 import filteredChart from './selectors/charts';
 import { Provider } from 'react-redux';
