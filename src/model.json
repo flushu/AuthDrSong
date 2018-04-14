@@ -1,0 +1,42 @@
+{
+  "charts" : {
+    "181": {
+      "name": "Ben Morrison",
+      "dob": "03/20/1997",
+      "phone": "714-616-6303",
+      "insurance": [{
+        "name": "Medicare",
+        "member_id": "1231918xed"
+      },
+      {
+        "name": "Medi-cal",
+        "member_id": "12399f9a"
+      }]
+    },
+    "182": {
+      "name": "Mike Song",
+      "dob": "08/12/1944",
+      "phone": "616-620-9841",
+      "insurance": [{
+        "type": "HMO",
+        "group": "Allied",
+        "member_id": "139991088"
+      }]
+    }
+  },
+  "appointments": {
+    "04102018": {
+      "pts": [{
+        "id": "182",
+        "provider": "Julia Song, M.D.",
+        "location": "Los Alamitos",
+        "time": "04:30pm"
+      },{
+        "id": "181",
+        "provider": "Alice Song, M.D.",
+        "location": "Los Alamitos",
+        "time": "05:30pm"
+      }]
+    }
+  }
+}
