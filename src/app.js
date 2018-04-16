@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Sidebar from './components/Sidebar/app';
-import ExcelForm from './components/ExcelForm/app';
+import AppRouter from './routers/AppRouter';
 import $ from 'jquery';
 import './styles/styles.scss';
 import 'normalize.css/normalize.css';
@@ -13,16 +12,9 @@ const store = configureStore();
 const currentState = store.getState();
 const sortedState = filteredChart(currentState.chart, currentState.filter);
 
-const App = (props) => (
-  <div id="app">
-    <Sidebar/>
-    <ExcelForm/>
-  </div>
-);
-
 const jsx = (
   <Provider store={store}>
-    <App />
+    <AppRouter/>
   </Provider>
 )
 

@@ -33,6 +33,7 @@ for(let i = 0; i < contents.length; i++){
   const provider = contents[i].children[4].innerText;
   const note = contents[i].children[6].innerText;
   data.appointments.push({
+    date,
     id: uuid(),
     name,
     dob,
