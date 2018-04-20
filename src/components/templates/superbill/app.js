@@ -2,6 +2,7 @@ import React from 'react';
 import FrontPage from './FrontPage';
 import BackPage from './BackPage';
 import {connect} from 'react-redux';
+import filterChart from '../../../selectors/charts';
 
 class App extends React.Component{
   constructor(props){
@@ -31,8 +32,10 @@ class App extends React.Component{
   }
 };
 
-const mapStateToProps = (state) => ({
-  appointments: state.chart
-});
+const mapStateToProps = (state) => {
+  return {
+    appointments: state.chart
+  }
+};
 
 export default connect(mapStateToProps)(App);

@@ -4,6 +4,17 @@
   background: grey;
   margin-bottom: 1px;
   color: white;
+  transition: all .2s ease-in;
+  transform: scale(1);
+  -webkit-transition: all .2s ease-in;
+  -webkit-transform: scale(1);
+}
+.nav_content:hover{
+  -webkit-transition: all .2s ease-in;
+  -webkit-transform: scale(1.2);
+  transition: all .2s ease-in;
+  transform: scale(1.2);
+  background: black;
 }
 #search_pt_input{
   width: 1.3in;

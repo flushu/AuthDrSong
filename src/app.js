@@ -7,6 +7,7 @@ import 'normalize.css/normalize.css';
 import configureStore from './store/configureStore';
 import filteredChart from './selectors/charts';
 import { Provider } from 'react-redux';
+// import './firebase/firebase';
 
 const store = configureStore();
 const currentState = store.getState();

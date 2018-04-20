@@ -1,4 +1,5 @@
 import uuid from 'uuid';
+import { changePracticeFusionTime } from './utils/utils';
 const date = document.getElementsByClassName("readable-date-container")[0].innerText;
 let data = {
   date,
@@ -11,7 +12,7 @@ for(let i = 0; i < contents.length; i++){
   if(contents[i].children[1].children.length > 1)
     continue;
   let type = contents[i].children[5].innerText.toLowerCase();
-  if(type.includes("adsc") || type.includes("reagan"))
+  if(type.includes("adsc") || type.includes("reagan") || type.includes("losal"))
     continue;
   if(type.includes("p/o")){
     type = type.includes("hmo") ? "P/O HMO" : "P/O";
@@ -38,7 +39,7 @@ for(let i = 0; i < contents.length; i++){
     name,
     dob,
     phone,
-    time,
+    time: changePracticeFusionTime(time),
     provider,
     type,
     note,

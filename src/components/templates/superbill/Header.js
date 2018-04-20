@@ -6,7 +6,6 @@ class Header extends React.Component{
     super(props);
   }
   render(){
-    console.log(this.props);
     return (
       <div id="header">
         <Row1 data={!!this.props.data ? this.props.data : undefined} />

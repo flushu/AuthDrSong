@@ -1,3 +1,4 @@
+import { changeTTtoHour } from '../utils/utils';
 const filterCharts = (charts, { sortBy, date, text, startTime, endTime, hideFinish }) => {
   return charts.filter((chart)=>{
     const textMatch = chart.name.toLowerCase().includes(text);
@@ -20,7 +21,7 @@ const filterCharts = (charts, { sortBy, date, text, startTime, endTime, hideFini
       return a.name > b.name ? 1 : -1;
     }
     if(sortBy === 'time'){
-      return a.time > b.time ? 1 : -1;
+      return changeTTtoHour(a.time) > changeTTtoHour(b.time) ? 1 : -1;
     }
   });
 };

@@ -11,9 +11,120 @@ class Form extends React.Component {
     super(props);
     this.add = this.add.bind(this);
     this.edit = this.edit.bind(this);
+    this.hasNull = this.hasNull.bind(this);
     this.state = {
       _insType: ["None", "Allied", "Brand New Day", "Caremore", "Prospect"],
+      errors: {
+        name_field: {
+          status: false,
+          message: "Missing name."
+        },
+        apt_time_field: {
+          status: false,
+          message: "Missing appointment time."
+        },
+        dob_field: {
+          status: false,
+          message: "Missing date of birth."
+        },
+        type_field: {
+          status: false,
+          message: "Missing appointment type."
+        }
+      }
     }
+  }
+  hasNull(chart){
+    let failed = false;
+    if(!chart.name){
+      this.setState((prevState)=>({
+        errors: {
+          ...prevState.errors,
+          name_field: {
+            ...prevState.errors.name_field,
+            status: true
+          }
+        }
+      }));
+      failed = true;
+    }
+    else {
+      this.setState((prevState) => ({
+        errors: {
+          name_field: {
+            ...prevState.errors.name_field,
+            status: false
+          }
+        }
+      }))
+    }
+    if(!chart.time){
+      this.setState((prevState)=>({
+        errors: {
+          ...prevState.errors,
+          time_field: {
+            ...prevState.errors.time_field,
+            status: true
+          }
+        }
+      }));
+      failed = true;
+    }
+    else {
+      this.setState((prevState) => ({
+        errors: {
+          time_field: {
+            ...prevState.errors.time_field,
+            status: false
+          }
+        }
+      }))
+    }
+    if(!chart.dob){
+      this.setState((prevState)=>({
+        errors: {
+          ...prevState.errors,
+          dob_field: {
+            ...prevState.errors.dob_field,
+            status: true
+          }
+        }
+      }));
+      failed = true;
+    }
+    else {
+      this.setState((prevState) => ({
+        errors: {
+          dob_field: {
+            ...prevState.errors.dob_field,
+            status: false
+          }
+        }
+      }))
+    }
+    if(!chart.type){
+      this.setState((prevState)=>({
+        errors: {
+          ...prevState.errors,
+          type_field: {
+            ...prevState.errors.type_field,
+            status: true
+          }
+        }
+      }));
+      failed = true;
+    }
+    else {
+      this.setState((prevState) => ({
+        errors: {
+          type_field: {
+            ...prevState.errors.type_field,
+            status: false
+          }
+        }
+      }))
+    }
+    return failed;
   }
   add(e) {
     e.preventDefault();
@@ -22,7 +133,9 @@ class Form extends React.Component {
       id: uuid(),
       time: changeHourToTT(this.props.form.time)
     };
-    this.props.dispatch(addPt(chart));
+    if(!this.hasNull(chart)){
+      this.props.dispatch(addPt(chart));
+    }
   }
   edit(e){
     e.preventDefault();
@@ -30,11 +143,23 @@ class Form extends React.Component {
       ...this.props.form,
       time: changeHourToTT(this.props.form.time)
     }
-    this.props.dispatch(editPt({id: this.props.form.id, updates: update}));
+    if(!this.hasNull(update)){
+      this.props.dispatch(editPt({ id: this.props.form.id, updates: update }));
+    }
   }
   render() {
     return (
       <div>
+        {
+          Object.keys(this.state.errors).map((key)=>{
+            return this.state.errors[key].status ? <div key={key}>{this.state.errors[key].message}</div> : undefined
+          })
+          // // this.state.errors.map((field)=>{
+          // //   return field.map(({status, message})=>{
+          // //     return status ? 
+          // //   });
+          // // })
+        }
         <form >
           <table>
             <thead>

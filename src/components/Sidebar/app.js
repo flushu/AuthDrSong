@@ -39,7 +39,11 @@ class App extends React.Component{
           <input type="text" id="search_pt_input" onChange={(e)=>{
             this.props.dispatch(setText({text: e.target.value}));
           }}/>
-          <div id="nav_contents">
+          <div id="sidebar_btns" style={{marginTop: "5px"}}>
+            <button id="create_superbill_btn">Superbills</button>
+            <button id="create_excel_btn">Table</button>
+          </div>
+          <div id="nav_contents" style={{marginTop: "5px", marginRight: "10px"}}>
             <ContentList />
             {/* <a href="/" onClick={this.navContentClickHandler}><div className="nav_content">Benjamin Morrison</div></a>
             <a href="/" onClick={this.navContentClickHandler}><div className="nav_content">Mike Song</div></a>

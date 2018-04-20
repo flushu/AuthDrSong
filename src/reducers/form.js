@@ -13,6 +13,7 @@ const defaultState = {
 export default (state=defaultState, action) => {
   switch(action.type){
     case 'SET_FORM':
+      console.log({...state, ...action.form});
       return {...state, ...action.form};
     default:
       return state;

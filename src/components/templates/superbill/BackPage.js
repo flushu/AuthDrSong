@@ -13,7 +13,7 @@ export default () => (
       <div><input type="checkbox" /> eRx</div><div id="backpage_erx_extra"><input type="checkbox" /> Retinoscope <input type="checkbox" /> Prisms</div>
     </div>
     <div>
-      <input type="checkbox" /> VF 24-2 OU OD OS
+      <input type="checkbox" /> VF 24-2 T/U OU OD OS
     </div>
     <div>
       <input type="checkbox" /> OCT

@@ -2,8 +2,12 @@
   border-spacing: 0.1in 0 0.1in 0;
   border-collapse: collapse;
 }
+#table tr td{
+  max-width: 3.5in;
+}
 #table tr{
   background-color: #eee;
+  border: 1px solid black;
 }
 #table th, #table td{
   padding: 3px 5px;
@@ -11,6 +15,12 @@
 #table tbody tr:hover{
   background-color: #ccc;
   cursor: pointer;
+}
+#table thead tr{
+  background-color: #aaa;
+}
+#table thead tr th{
+  border: 1px solid black;
 }
 
 #th_name:hover, #th_time:hover{
