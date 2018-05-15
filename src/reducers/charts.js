@@ -4,8 +4,8 @@ const defaultState = Data().appointments;
 
 export default (state=defaultState,action) => {
   switch(action.type){
-    case 'ADD_PT':
-      console.log('adding pt');
+    case 'ADD_APPOINTMENT':
+      console.log('adding appointment');
       return [...state, action.chart];
     case 'REMOVE_PT':
       console.log('removing pt');

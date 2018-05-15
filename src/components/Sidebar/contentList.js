@@ -13,24 +13,39 @@ const style_sidebar_alice = {
   cursor: "pointer"
 }
 
-const ContentList = (props) => (
-  <div>
-    {
-      props.charts.map(
-        ({id, name, provider, type})=>{
-          const defined_type = type.includes("F/U") ? "F/U" : (type.includes("NP") ? "NP" : (type.includes("P/O") ? "P/O" : "SX"));
-          return (
-            <div 
-              key={id} 
-              className="nav_content" 
-              style={ provider === 'Julia Song' ? style_sidebar_julia : style_sidebar_alice }
-              > {defined_type} | {name}
-            </div>
-          );
-        })
-    }
-  </div>
-);
+class ContentList extends React.Component{
+  constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(e){
+    e.preventDefault();
+    console.log('clicked!');
+  }
+  render(){
+    return (
+      <div id="contentlist_component">
+        {
+          this.props.charts.map(
+            ({ id, name, provider, type }) => {
+              const defined_type = type.includes("F/U") ? "F/U" : (type.includes("NP") ? "NP" : (type.includes("P/O") ? "P/O" : "SX"));
+              return (
+                <div
+                  key={id}
+                  className="nav_content"
+                  style={provider === 'Julia Song' ? style_sidebar_julia : style_sidebar_alice}
+                  onClick={
+                    this.handleClick
+                  }
+                > {defined_type} | {name}
+                </div>
+              );
+            })
+        }
+      </div>
+    );
+  }
+}
 
 const StateToProps = (state) => (
   {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { editPt, addPt } from '../../actions/charts';
+import { editPt, addPt, firebaseAddAppointment } from '../../actions/charts';
 import { changeHourToTT } from '../../utils/utils';
 import { setForm } from '../../actions/form';
 import $ from 'jquery';
@@ -134,7 +134,7 @@ class Form extends React.Component {
       time: changeHourToTT(this.props.form.time)
     };
     if(!this.hasNull(chart)){
-      this.props.dispatch(addPt(chart));
+      this.props.dispatch(firebaseAddAppointment(chart));
     }
   }
   edit(e){
@@ -216,6 +216,10 @@ class Form extends React.Component {
 const stateToProps = (state) => ({
   charts: state.chart,
   form: state.form
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  firebaseAddAppointment: (chart) => dispatch(firebaseAddAppointment(chart))
 });
 
 export default connect(stateToProps)(Form);

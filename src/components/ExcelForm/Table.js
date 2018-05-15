@@ -19,6 +19,7 @@ class Table extends React.Component{
     this.props.dispatch(removePt({id}));
   }
   render() {
+    console.log(this.props.charts.length);
     return (
       <div id="table">
         <table>

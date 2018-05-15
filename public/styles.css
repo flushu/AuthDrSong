@@ -3,28 +3,44 @@ html {
 
 body {
   font-family: 'Times New Roman', Times, serif;
-  margin: 0; }
+  margin: 0;
+  padding: 0.1in; }
 
 .nav_content {
   font-size: 1.2rem;
   width: 1.3in;
   background: grey;
   margin-bottom: 1px;
-  color: white; }
+  color: white;
+  transition: all .2s ease-in;
+  transform: scale(1);
+  -webkit-transition: all .2s ease-in;
+  -webkit-transform: scale(1); }
+
+.nav_content:hover {
+  -webkit-transition: all .2s ease-in;
+  -webkit-transform: scale(1.2);
+  transition: all .2s ease-in;
+  transform: scale(1.2);
+  background: black; }
 
 #search_pt_input {
   width: 1.3in;
   margin-bottom: 1px; }
 
-#app {
+#preppage {
   display: flex; }
 
 #table table {
   border-spacing: 0.1in 0 0.1in 0;
   border-collapse: collapse; }
 
+#table tr td {
+  max-width: 3.5in; }
+
 #table tr {
-  background-color: #eee; }
+  background-color: #eee;
+  border: 1px solid black; }
 
 #table th, #table td {
   padding: 3px 5px; }
@@ -33,11 +49,310 @@ body {
   background-color: #ccc;
   cursor: pointer; }
 
+#table thead tr {
+  background-color: #aaa; }
+
+#table thead tr th {
+  border: 1px solid black; }
+
 #th_name:hover, #th_time:hover {
   cursor: pointer; }
 
 #dob_input {
   width: 0.7in; }
+
+#frontpage {
+  page-break-before: always;
+  page-break-after: always;
+  width: 8.5in;
+  height: 11in; }
+
+#backpage {
+  page-break-before: always;
+  page-break-after: always;
+  width: 8.5in;
+  height: 11in; }
+
+/** Header **/
+.header_row1 {
+  display: flex;
+  margin-top: 0.1in; }
+
+.header_col1 {
+  width: 25%;
+  text-align: left;
+  position: relative; }
+
+.header_col2 {
+  width: 50%;
+  text-align: center;
+  position: relative; }
+
+.header_col3 {
+  width: 25%;
+  text-align: right;
+  position: relative; }
+
+/** Col1 **/
+.header_col1 .group {
+  position: absolute;
+  left: 0;
+  bottom: 0; }
+
+.header_col1_row1 {
+  display: flex; }
+
+.header_col1_row1 .ref_input {
+  width: 0.4in;
+  height: 0.3in; }
+
+.header_col1_row1 .ref_input input[type=checkbox] {
+  border: 1px solid black; }
+
+.header_col1_row1 table {
+  empty-cells: show;
+  border-spacing: 0;
+  margin-left: 0.1in; }
+
+.header_col1_row1 table td {
+  border: 1px solid black;
+  text-align: center; }
+
+.header_col1_row1 table td input {
+  width: 0.2in;
+  height: 0.1in; }
+
+.header_col1_row2 {
+  margin-top: 0.1in; }
+
+.header_col1_row2 label {
+  margin-right: 0.1in; }
+
+/** Col2 **/
+.header_col2 input {
+  margin-left: 0.3in; }
+
+.header_col2 textarea {
+  margin-top: 0.1in; }
+
+/** col3 **/
+.header_col3 .group {
+  position: absolute;
+  right: 0;
+  bottom: 0; }
+
+.header_col3 input {
+  border: 0;
+  border-bottom: 1px solid black;
+  margin-top: 5px;
+  text-align: center; }
+
+.header_col3 #dob_input {
+  width: 0.7in; }
+
+.header_col3 #apt_time_input {
+  width: 1.1in; }
+
+.header_col3 #phone_input {
+  width: 0.8in; }
+
+/** Row2 **/
+.header_row2 {
+  border: 1px solid black;
+  text-align: center;
+  padding: 3px;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+
+/** End of Header **/
+/** Body **/
+#body_cols {
+  display: flex;
+  justify-content: space-between; }
+
+#body_cols #body_col1 #body_col1_row2 {
+  margin-top: 0.5in; }
+
+#body_cols #body_col1 #body_col1_row2 table {
+  empty-cells: show; }
+
+#body_cols #body_col1 #body_col1_row2 table td {
+  border: 1px solid black;
+  width: 0.7in;
+  height: 0.2in; }
+
+#body table td {
+  padding: 0 0.1in 0 0; }
+
+#body table {
+  border-spacing: 0; }
+
+#body .category_tr {
+  text-decoration: underline;
+  font-weight: bold; }
+
+#body .service_and_icd_tr {
+  cursor: pointer; }
+
+/** End of Body **/
+/** Footer **/
+#footer {
+  display: flex;
+  margin-top: 10px; }
+
+#footer .clickable {
+  cursor: pointer; }
+
+#footer #footer_col1 {
+  text-align: left;
+  position: relative;
+  width: 25%; }
+
+#footer #footer_col2 {
+  position: relative;
+  width: 55%; }
+
+#footer #footer_col3 {
+  position: relative;
+  text-align: right;
+  width: 20%; }
+
+#footer #footer_col1 #auth_input {
+  width: 1in;
+  border: 0;
+  border-bottom: 1px solid black; }
+
+#footer #footer_col1 #ppo_input, #footer #footer_col1 #hmo_input {
+  width: 0.1in;
+  border: 0;
+  border-bottom: 1px solid black; }
+
+#footer #footer_col2 #next_visit_estimate_date_input {
+  display: flex; }
+
+#footer #footer_col2 #next_visit_estimate_date_input input {
+  width: 0.1in;
+  border: 0;
+  border-bottom: 1px solid black; }
+
+#footer #footer_col2 .margin_right_little {
+  margin-right: 0.2in; }
+
+#footer #footer_col2 #next_visit_auth_input {
+  margin-bottom: 5px; }
+
+#footer #footer_col2 #next_visit_auth_input input {
+  width: 1.5in;
+  border: 0;
+  border-bottom: 1px solid black; }
+
+#footer #footer_col2 #next_visit_misc_input input {
+  margin-left: 0.1in; }
+
+#footer #footer_col3 .group {
+  position: absolute;
+  right: 25px; }
+
+#footer #footer_col3 input[type="text"] {
+  width: 0.5in;
+  border: 0;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px; }
+
+/** End of Footer **/
+/** Backpage **/
+#backpage .title {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.5rem; }
+
+#backpage div {
+  margin-bottom: 10px; }
+
+#backpage input[type=text] {
+  width: 1in;
+  border: 0;
+  border-bottom: 1px solid black; }
+
+#backpage input[type=checkbox] {
+  margin-right: 10px; }
+
+#backpage #backpage_erx {
+  display: flex; }
+
+#backpage #backpage_erx_extra {
+  margin-left: 20px; }
+
+#backpage #backpage_erx_extra input[type=checkbox] {
+  margin-right: 2px; }
+
+#backpage #backpage_dfe {
+  display: flex; }
+
+#backpage #backpage_dfe_extra {
+  margin-left: 20px; }
+
+#backpage #backpage_dfe_extra input[type=checkbox] {
+  margin-right: 2px; }
+
+#backpage textarea {
+  margin-top: 20px; }
+
+/** End of Backpage **/
+#schedule #nested_group {
+  display: flex;
+  width: 100%; }
+
+/** **/
+#schedule_component table tr {
+  height: 20px;
+  border: 1px solid black; }
+
+#schedule_component #schedule_row1 {
+  border: solid 1px black;
+  flex-basis: 5%;
+  width: 98%;
+  background: white; }
+
+#schedule_component #schedule_row2 {
+  border: solid 1px black;
+  flex-basis: 90%;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; }
+
+#schedule_component #appointment_cards {
+  background: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll; }
+
+#schedule_component #appointment_cards table {
+  border-spacing: 0; }
+
+#schedule_component #appointment_cards .apt_card_time {
+  width: 20px;
+  background: yellow; }
+
+#schedule_component #appointment_cards .apt_card_alice {
+  padding: 0;
+  width: 50%;
+  border: 1px solid green; }
+
+#schedule_component #appointment_cards .apt_card_julia {
+  padding: 0;
+  width: 50%;
+  border: 1px solid blue; }
+
+#schedule_component #appointment_cards table td .appointment_card_container div {
+  border-right: 1px solid black;
+  width: 25%;
+  height: 20px; }
+
+#schedule_component #appointment_cards .appointment_card_container {
+  display: flex; }
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */

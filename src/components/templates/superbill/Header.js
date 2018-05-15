@@ -33,6 +33,7 @@ class Col1 extends React.Component{
       value_prep: "",
       provider: !!props.data ? props.data.provider : "",
       location: !!props.data ? (props.data.date.includes("Mon") || props.data.date.includes("Tue") || props.data.date.includes("Thu") ? "Los Alamitos" : "Pasadena") : ""
+      // location: !!props.data ? "Pasadena" : ""
     };
   }  
   render(){
@@ -129,7 +130,8 @@ class Col3 extends React.Component {
     this.state = {
       name: !!props.data ? props.data.name : "",
       dob: !!props.data ? props.data.dob : "",
-      apt_time: !!props.data ? props.data.date.substr(5) + " " + props.data.time : ""
+      apt_time: !!props.data ? props.data.date.substr(5) + " " + props.data.time : "",
+      phone: !!props.data ? props.data.phone : ""
     }
   }
   render() {
@@ -139,6 +141,14 @@ class Col3 extends React.Component {
           <div>Name: <AutosizeInput  value={this.state.name} onChange={(e)=>{
             this.setState({name: e.target.value})
           }}/></div>
+          <div>Phone: <input id="phone_input" type='text' value={this.state.phone}
+            onChange={(e)=>{
+              const phone = e.target.value;
+              this.setState({
+                phone
+              });
+            }}
+          /></div>
           <div>DOB: <input id="dob_input" type="text" value={this.state.dob} 
             onChange={(e)=>{
               const dob = e.target.value;

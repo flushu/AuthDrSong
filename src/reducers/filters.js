@@ -1,6 +1,6 @@
 const defaultState = {
   date: undefined,
-  sortBy: "time",
+  sortBy: "name",
   text: "",
   startTime: 0,
   endTime: 24,

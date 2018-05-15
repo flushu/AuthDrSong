@@ -13,41 +13,12 @@ const style_for_resizable = {
   justifyContent: 'space-around',
   alignItems: 'center'
 };
-const rows_1 = {
-  border: "solid 1px black",
-  flexBasis: '5%',
-  width: '98%',
-};
-const rows_2 = {
-  border: "solid 1px black",
-  flexBasis: '90%',
-  width: '98%',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'stretch',
-  overflow: 'scroll'
-};
-const rows_2_col1 = {
-  background: 'white',
-  width: '49%',
-  display: 'flex',
-  flexDirection: 'column'
-};
-const rows_2_col2 = {
-  background: 'white',
-  width: '49%',
-};
-const appointment_card = {
-  background: 'blue',
-  padding: '1%',
-  flexBasis: '10px'
-};
 
-class App extends React.Component{
-  constructor(props){
+class App extends React.Component {
+  constructor(props) {
     super(props);
   }
-  render(){
+  render() {
     const { width, height } = this.props.size;
     return (
       <div id="schedule_component">
@@ -61,19 +32,11 @@ class App extends React.Component{
           maxWidth={1000}
           grid={[50, 50]}
         >
-          <div id="schedule_row1" style={rows_1}>
-            
-          </div>
-          <div id="schedule_row2" style={rows_2}>
-            <div
-              style={rows_2_col1}
-            >
+          <div id="schedule_row1">
 
-            </div>
-            <div
-              style={rows_2_col2}
-            >
-            </div>
+          </div>
+          <div id="schedule_row2">
+            <AppointmentCards />
           </div>
         </Resizable>
       </div>
@@ -81,72 +44,625 @@ class App extends React.Component{
   }
 };
 
-const appointment_cards = () => (
-  <div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
-    <div style={appointment_card}></div>
+const AppointmentCards = () => (
+  <div id="appointment_cards">
+    <table>
+      <tbody>
+        <tr>
+          <td className="apt_card_time">06:00</td>
+          <td className="apt_card_alice">
+            <div className="appointment_card_container">
+              <div>Ben Morrison</div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </td>
+          <td className="apt_card_julia">
+            <div className="appointment_card_container">
+              <div>Ben Morrison</div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td className="apt_card_time">06:15</td>
+          <td className="apt_card_alice">
+            <div className="appointment_card_container">
+              <div>Mike Song</div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+
+          </td>
+          <td className="apt_card_julia">
+            <div className="appointment_card_container">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+
+          </td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">06:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">06:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">07:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">07:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">07:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">07:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">08:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">08:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">08:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">08:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">09:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">09:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">09:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">09:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">10:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">10:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">10:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">10:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">11:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">11:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">11:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">11:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">12:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">12:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">12:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">12:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">13:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">13:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">13:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">13:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">14:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">14:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">14:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">14:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">15:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">15:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">15:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">15:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">16:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">16:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">16:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">16:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">17:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">17:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">17:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">17:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">18:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">18:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">18:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">18:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">19:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">19:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">19:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">19:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">20:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">20:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">20:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">20:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">21:00</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">21:15</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">21:30</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+
+        </tr>
+        <tr>
+          <td className="apt_card_time">21:45</td>
+          <td className="apt_card_alice"></td>
+          <td className="apt_card_julia"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+)
+const AppointmentCards2 = () => (
+  <div id="appointment_card2" style={rows_2_col2}>
+    <table>
+      <tbody>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+
+        </tr>
+
+      </tbody>
+    </table>
   </div>
 )
 

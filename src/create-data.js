@@ -12,7 +12,7 @@ for(let i = 0; i < contents.length; i++){
   if(contents[i].children[1].children.length > 1)
     continue;
   let type = contents[i].children[5].innerText.toLowerCase();
-  if(type.includes("adsc") || type.includes("reagan") || type.includes("losal"))
+  if(type.includes("adsc") || type.includes("reagan") || type.includes("losal") || type.includes("alhambra"))
     continue;
   if(type.includes("p/o")){
     type = type.includes("hmo") ? "P/O HMO" : "P/O";

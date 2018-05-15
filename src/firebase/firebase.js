@@ -12,11 +12,15 @@ var config = {
 
 firebase.initializeApp(config);
 
-const changeTime = firebase.database().ref('appointments/20180412').on('value', (snapshot)=>{
-  snapshot.val().map(({name, time})=>{
-    console.log(`${name} has an appointment at ${time}`);
-  });
-});
+// const changeTime = firebase.database().ref('appointments/20180412').on('value', (snapshot)=>{
+//   snapshot.val().map(({name, time})=>{
+//     console.log(`${name} has an appointment at ${time}`);
+//   });
+// });
+
+const database = firebase.database();
+
+export { firebase, database as default };
 
 // setTimeout(()=>{
 //   firebase.database().ref('appointments/20180412/0').update({

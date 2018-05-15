@@ -34,7 +34,7 @@ class App extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    appointments: state.chart
+    appointments: filterChart(state.chart, state.filter)
   }
 };
 

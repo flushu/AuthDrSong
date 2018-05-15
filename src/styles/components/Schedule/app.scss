@@ -2,3 +2,62 @@
   display: flex;
   width: 100%;
 }
+
+/** **/
+#schedule_component table tr{
+  height: 20px;
+  border: 1px solid black;
+}
+
+#schedule_component #schedule_row1{
+  border: solid 1px black;
+  flex-basis: 5%;
+  width: 98%;
+  background: white;
+}
+
+#schedule_component #schedule_row2{
+  border: solid 1px black;
+  flex-basis: 90%;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+#schedule_component #appointment_cards{
+  background: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+#schedule_component #appointment_cards table{
+  border-spacing: 0;
+}
+
+#schedule_component #appointment_cards .apt_card_time{
+  width: 20px;
+  background: yellow;
+}
+#schedule_component #appointment_cards .apt_card_alice{
+  padding: 0;
+  width: 50%;
+  border: 1px solid green;
+}
+#schedule_component #appointment_cards .apt_card_julia{
+  padding: 0;
+  width: 50%;
+  border: 1px solid blue;
+}
+
+#schedule_component #appointment_cards table td .appointment_card_container div{
+  border-right: 1px solid black;
+  width: 25%;
+  height: 20px;
+}
+
+#schedule_component #appointment_cards .appointment_card_container{
+  display: flex;
+}
