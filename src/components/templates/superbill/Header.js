@@ -32,16 +32,14 @@ class Col1 extends React.Component {
       value_arrival: "",
       value_prep: "",
       provider: !!props.data ? props.data.provider : "",
-      // location: !!props.data ? "Pasadena" : "",
-      location: "Pasadena"
-      // !!props.data
+      location: !!props.data ? "Pasadena" : ""
+      // location: !!props.data
       //   ? props.data.date.includes("Mon") ||
       //     props.data.date.includes("Tue") ||
       //     props.data.date.includes("Thu")
       //     ? "Los Alamitos"
       //     : "Pasadena"
       //   : ""
-      // location: !!props.data ? "Pasadena" : ""
     };
   }
   render() {
