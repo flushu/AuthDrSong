@@ -31,15 +31,16 @@ class Col1 extends React.Component {
       value_elig: "",
       value_arrival: "",
       value_prep: "",
+      type: !!props.data ? props.data.type : "",
       provider: !!props.data ? props.data.provider : "",
-      location: !!props.data ? "Pasadena" : ""
-      // location: !!props.data
-      //   ? props.data.date.includes("Mon") ||
-      //     props.data.date.includes("Tue") ||
-      //     props.data.date.includes("Thu")
-      //     ? "Los Alamitos"
-      //     : "Pasadena"
-      //   : ""
+      location: !!props.data
+        ? props.data.date.includes("Mon") ||
+          props.data.date.includes("Tue") ||
+          props.data.date.includes("Thu")
+          ? "Los Alamitos"
+          : "Pasadena"
+        : ""
+      // location: !!props.data ? "Pasadena" : ""
     };
   }
   render() {
@@ -51,10 +52,9 @@ class Col1 extends React.Component {
             <table>
               <thead>
                 <tr>
-                  <td>Elig</td>
-                  <td>Prep</td>
-                  <td>Arrival</td>
-                  <td>Chart up</td>
+                  <td>Scanned</td>
+                  <td>Requested</td>
+                  <td>PF Scheduled</td>
                 </tr>
               </thead>
               <tbody>
@@ -79,7 +79,6 @@ class Col1 extends React.Component {
                       this.setState({ value_chartup: e.target.value });
                     }
                   } /></td> */}
-                  <td>&nbsp;</td>
                   <td>&nbsp;</td>
                   <td>&nbsp;</td>
                   <td>&nbsp;</td>
@@ -108,14 +107,14 @@ class Col1 extends React.Component {
               <label>
                 <input
                   type="checkbox"
-                  checked={this.state.provider.includes("Alice Song")}
+                  checked={this.state.provider.includes("ALICE SONG")}
                 />{" "}
                 Alice Song, M.D.
               </label>
               <label>
                 <input
                   type="checkbox"
-                  checked={this.state.provider.includes("Julia Song")}
+                  checked={this.state.provider.includes("JULIA SONG")}
                 />{" "}
                 Julia Song, M.D.
               </label>
@@ -132,25 +131,30 @@ class Col2 extends React.Component {
     super(props);
     this.state = {
       type: !!props.data ? props.data.type : "",
-      note: !!props.data ? props.data.note : ""
+      note: !!props.data ? props.data.note : "",
+      provider: !!props.data ? props.data.provider : ""
     };
   }
   render() {
     return (
       <div className="header_col2">
         <div>
-          <input type="checkbox" checked={this.state.type.includes("NP")} /> NP
-          <input
-            type="checkbox"
-            checked={this.state.type.includes("F/U")}
-          />{" "}
-          F/U
-          <input
-            type="checkbox"
-            checked={this.state.type.includes("P/O")}
-          />{" "}
-          P/O
-          <input type="checkbox" checked={this.state.type.includes("SX")} /> SX
+          <label>
+            <input type="checkbox" checked={this.state.type.includes("NP")} />{" "}
+            NP
+          </label>
+          <label>
+            <input type="checkbox" checked={this.state.type.includes("F/U")} />{" "}
+            F/U
+          </label>
+          <label>
+            <input type="checkbox" checked={this.state.type.includes("P/O")} />{" "}
+            P/O
+          </label>
+          <label>
+            <input type="checkbox" checked={this.state.type.includes("SX")} />{" "}
+            SX
+          </label>
         </div>
         <div>
           <textarea

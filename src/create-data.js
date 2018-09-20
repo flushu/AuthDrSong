@@ -16,8 +16,7 @@ for (let i = 0; i < contents.length; i++) {
     type.includes("adsc") ||
     type.includes("reagan") ||
     type.includes("losal") ||
-    type.includes("alhambra") ||
-    type.includes("cdsc")
+    type.includes("alhambra")
   )
     continue;
   if (type.includes("p/o")) {
@@ -36,7 +35,7 @@ for (let i = 0; i < contents.length; i++) {
     .getElementsByClassName("phone")[0]
     .innerText.substr(3);
   const time = contents[i].children[3].innerText;
-  const provider = contents[i].children[4].innerText;
+  const provider = contents[i].children[4].innerText.toUpperCase();
   const note = contents[i].children[6].innerText;
   data.appointments.push({
     date,
