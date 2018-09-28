@@ -16,7 +16,9 @@ for (let i = 0; i < contents.length; i++) {
     type.includes("adsc") ||
     type.includes("reagan") ||
     type.includes("losal") ||
-    type.includes("alhambra")
+    type.includes("alhambra") ||
+    type.includes("pasc") ||
+    type.includes("cdsc")
   )
     continue;
   if (type.includes("p/o")) {
